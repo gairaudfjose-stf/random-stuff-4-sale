@@ -1,56 +1,118 @@
-<!-- ... HEAD ... -->
-<body id="product-page" class="flex flex-col min-h-screen">
-    <!-- ... NAV ... -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Drop | Random Stuff 4 Sale</title>
+    
+    <!-- Estilos y Fuentes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 
+<!-- El ID "product-page" es vital para que el JS sepa que debe cargar un solo producto -->
+<body id="product-page" class="flex flex-col min-h-screen">
+
+    <!-- NAV (Menú Superior) -->
+    <nav class="border-b-4 border-black bg-[#F5F5DC] py-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-[#E74C3C] rounded-full border-2 border-black flex items-center justify-center text-white font-heading text-xl group-hover:rotate-12 transition-transform">S</div>
+                <span class="font-heading text-2xl tracking-tighter uppercase hidden md:block">RandomStuff<span class="text-[#E74C3C]">4Sale</span></span>
+            </a>
+            
+            <!-- Botón Carrito -->
+            <button class="snipcart-checkout flex items-center gap-2 font-heading uppercase border-2 border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition cursor-pointer">
+                <span class="text-xl">🛒</span> 
+                <span class="snipcart-items-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="container mx-auto px-4 py-12 flex-grow">
-        <a href="tienda.html" class="font-heading uppercase text-sm mb-6 inline-block hover:underline"><- Volver al Clóset</a>
+        <!-- Botón Volver -->
+        <a href="tienda.html" class="font-heading uppercase text-sm mb-6 inline-block hover:underline hover:text-[#E74C3C] transition-colors">
+            &larr; Volver al Clóset
+        </a>
         
+        <!-- Grid del Producto -->
         <div id="product-detail" class="grid md:grid-cols-2 gap-12">
-            <!-- Galería -->
-            <div class="border-2 border-black bg-white p-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <img id="prod-img" src="" alt="" class="w-full h-auto object-cover aspect-[4/5]">
+            
+            <!-- Columna Izquierda: Galería/Imagen -->
+            <div class="relative">
+                <div class="border-2 border-black bg-white p-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    <!-- La imagen se inyecta vía JS aquí -->
+                    <img id="prod-img" src="" alt="Cargando drop..." class="w-full h-auto object-cover aspect-[4/5] bg-gray-100">
+                </div>
             </div>
 
-            <!-- Info -->
+            <!-- Columna Derecha: Información -->
             <div class="flex flex-col justify-center">
-                <h1 id="prod-title" class="text-4xl md:text-6xl font-heading font-bold mb-2 leading-none"></h1>
-                <p id="prod-price" class="text-3xl text-[#E74C3C] font-heading mb-6"></p>
+                <h1 id="prod-title" class="text-4xl md:text-6xl font-heading font-bold mb-2 leading-none uppercase">Cargando...</h1>
+                <p id="prod-price" class="text-3xl text-[#E74C3C] font-heading mb-6 border-b-2 border-black border-dashed pb-4">...</p>
                 
-                <div class="border-y border-black py-4 mb-6 space-y-2 font-body">
-                    <p><strong>Condición:</strong> <span id="prod-condition"></span></p>
-                    <p><strong>Talla:</strong> <span id="prod-size"></span></p>
+                <div class="grid grid-cols-2 gap-4 mb-6 font-body bg-white border border-black p-4">
+                    <div>
+                        <span class="block text-xs uppercase text-gray-500 font-bold">Condición:</span> 
+                        <span id="prod-condition" class="text-lg">...</span>
+                    </div>
+                    <div>
+                        <span class="block text-xs uppercase text-gray-500 font-bold">Talla:</span> 
+                        <span id="prod-size" class="text-lg font-bold">...</span>
+                    </div>
                 </div>
 
-                <p id="prod-desc" class="text-lg font-body mb-8 leading-relaxed"></p>
+                <p id="prod-desc" class="text-lg font-body mb-8 leading-relaxed text-gray-800">...</p>
 
+                <!-- Botones de Acción -->
                 <div class="flex flex-col gap-4">
-                    <button id="btn-add-cart" class="snipcart-add-item btn-stuffy bg-black text-white text-xl font-heading uppercase py-4 px-6 w-full text-center hover:bg-[#E74C3C] border-2 border-black">
+                    <!-- Botón Snipcart (Datos se llenan vía JS) -->
+                    <button id="btn-add-cart" class="snipcart-add-item btn-stuffy bg-black text-white text-xl font-heading uppercase py-4 px-6 w-full text-center hover:bg-[#E74C3C] border-2 border-black transition-colors">
                         Agregar al Carrito
                     </button>
                     
-                    <a id="btn-whatsapp" href="#" target="_blank" class="btn-stuffy bg-[#25D366] text-white text-xl font-heading uppercase py-3 px-6 w-full text-center border-2 border-black flex justify-center items-center gap-2">
+                    <!-- Botón WhatsApp (Link se genera vía JS) -->
+                    <a id="btn-whatsapp" href="#" target="_blank" class="btn-stuffy bg-[#25D366] text-white text-xl font-heading uppercase py-3 px-6 w-full text-center border-2 border-black flex justify-center items-center gap-2 hover:bg-[#20bd5a] transition-colors">
                         <span>💬</span> Preguntar por WhatsApp
                     </a>
-                    <p class="text-xs text-center opacity-60 font-body">¿Dudas? Escríbeme directo. Si está aquí, es 1/1.</p>
+                    <p class="text-xs text-center opacity-60 font-body italic mt-2">¿Dudas? Escríbeme directo. Si está aquí, es 1/1.</p>
                 </div>
             </div>
         </div>
         
-        <!-- FAQ Producto -->
+        <!-- Sección FAQ debajo del producto -->
         <div class="mt-16 border-t-4 border-black pt-8">
-            <h3 class="font-heading text-2xl mb-4">Lo que tienes que saber</h3>
+            <h3 class="font-heading text-2xl mb-4 uppercase">Lo que tienes que saber</h3>
             <div class="grid md:grid-cols-2 gap-8 font-body text-sm">
                 <div>
-                    <h4 class="font-bold">¿Es original?</h4>
-                    <p>Todo lo que vende Stuffy es curado. Si es bootleg, te lo decimos. Si es real, lo certificamos con el ojo experto.</p>
+                    <h4 class="font-bold uppercase mb-1">¿Es original?</h4>
+                    <p>Todo lo que vende Stuffy es curado. Si es bootleg, te lo decimos claro. Si es real, lo certificamos con el ojo experto.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold">Envíos</h4>
-                    <p>Envíos a todo el país. Lo empacamos con stickers y mucho hype.</p>
+                    <h4 class="font-bold uppercase mb-1">Envíos</h4>
+                    <p>Envíos a todo el país. Lo empacamos con stickers y mucho hype. Tarda de 2 a 3 días hábiles.</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- ... FOOTER / SCRIPTS ... -->
+    <!-- FOOTER -->
+    <footer class="bg-[#F5F5DC] border-t-4 border-black py-8 text-center mt-auto">
+        <div class="container mx-auto px-4">
+            <p class="font-heading text-xs uppercase opacity-40">&copy; 2025 Random Stuff 4 Sale. Built with Hype.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <!-- RECUERDA: Reemplaza la API KEY abajo con la tuya de Snipcart -->
+    <div hidden id="snipcart" data-api-key="ZTRjNDlmNmEtNGI2Yi00OWY0LWIyNjEtMGRkODE3OTVhYTFlNjM5MDAzMjEyNjI3MjI1NTUz" data-config-modal-style="side"></div>
+    <script src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+    
+    <!-- Script Principal -->
+    <script src="assets/js/app.js"></script>
 </body>
+</html>
