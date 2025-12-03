@@ -1,5 +1,5 @@
 // Configuración
-const WHATSAPP_PHONE = "50600000000"; // REPLACE_WHATSAPP_NUMBER (Formato: PAIS+NUMERO sin +)
+const WHATSAPP_PHONE = "50670962156"; // REPLACE_WHATSAPP_NUMBER (Formato: PAIS+NUMERO sin +)
 const PRODUCTS_URL = "./products.json";
 
 // Cargar productos al iniciar
@@ -107,7 +107,7 @@ function renderSingleProduct(products) {
     // Configurar Botón WhatsApp
     const btnWa = document.getElementById('btn-whatsapp');
     const msg = `Hola Stuffy, me interesa el drop: ${product.name} (Ref: ${product.id}). ¿Sigue disponible?`;
-    btnWa.href = `https://wa.me/${WHATSAPP_PHONE}/?text=${encodeURIComponent(msg)}`;
+    btnWa.href = `https://wa.me/${70962156}/?text=${encodeURIComponent(msg)}`;
 }
 
 // HTML Component: Card
@@ -166,3 +166,4 @@ function injectProductSchema(product) {
     script.text = JSON.stringify(schema);
     document.head.appendChild(script);
 }
+
