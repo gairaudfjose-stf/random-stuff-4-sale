@@ -1,27 +1,106 @@
-<!-- Mismo Head/Nav/Footer que index.html, cambia el contenido principal -->
-<!-- ... HEAD ... -->
-<body id="shop-page" class="flex flex-col min-h-screen">
-    <!-- ... NAV ... -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Clóset | Random Stuff 4 Sale</title>
+    <meta name="description" content="Catálogo completo de ropa vintage. Filtra por chaquetas, playeras y accesorios.">
+    
+    <!-- Librerías Externas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+    
+    <!-- Estilos Propios -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 
-    <main class="container mx-auto px-4 py-8 flex-grow">
-        <h1 class="text-5xl font-heading mb-8 border-b-2 border-black inline-block">El Clóset</h1>
+<!-- El ID "shop-page" es vital para que el JS sepa que debe cargar la cuadrícula de productos -->
+<body id="shop-page" class="flex flex-col min-h-screen">
+
+    <!-- NAV (Menú Superior) -->
+    <nav class="border-b-4 border-black bg-[#F5F5DC] py-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-[#E74C3C] rounded-full border-2 border-black flex items-center justify-center text-white font-heading text-xl group-hover:rotate-12 transition-transform">S</div>
+                <span class="font-heading text-2xl tracking-tighter uppercase hidden md:block">RandomStuff<span class="text-[#E74C3C]">4Sale</span></span>
+            </a>
+            
+            <!-- Enlaces de navegación -->
+            <div class="hidden md:flex gap-6 font-heading text-lg uppercase">
+                <a href="tienda.html" class="text-[#E74C3C] underline decoration-2">El Clóset</a>
+                <a href="blog.html" class="hover:text-[#E74C3C] transition-colors">Blog</a>
+                <a href="about.html" class="hover:text-[#E74C3C] transition-colors">La Historia</a>
+            </div>
+
+            <!-- Botón Carrito -->
+            <div class="flex items-center gap-4">
+                <button class="snipcart-checkout flex items-center gap-2 font-heading uppercase border-2 border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition cursor-pointer">
+                    <span class="text-xl">🛒</span> <span class="snipcart-items-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <!-- Título de la página -->
+        <div class="mb-10 text-center md:text-left">
+            <h1 class="text-6xl font-heading uppercase inline-block border-b-4 border-[#E74C3C] mb-2">El Clóset</h1>
+            <p class="font-body mt-2 text-xl text-gray-700 italic">"Explora la colección completa. Recuerda: es 1/1, si te gusta, no esperes."</p>
+        </div>
         
-        <!-- Filtros -->
-        <div class="flex flex-wrap gap-4 mb-8">
-            <button class="filter-btn btn-stuffy bg-black text-white px-4 py-2 font-heading uppercase text-sm" data-category="all">Todo</button>
-            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Chaquetas">Chaquetas</button>
-            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Playeras">Playeras</button>
-            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Pantalones">Pantalones</button>
-            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Accesorios">Accesorios</button>
+        <!-- Botones de Filtro -->
+        <!-- NOTA: Los atributos 'data-category' deben coincidir con las categorías en tu products.json -->
+        <div class="flex flex-wrap gap-4 mb-12 border-b-2 border-dashed border-black pb-8">
+            <button class="filter-btn btn-stuffy bg-black text-white px-6 py-2 font-heading uppercase tracking-wide text-sm" data-category="all">Todo</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-6 py-2 font-heading uppercase tracking-wide text-sm" data-category="Chaquetas">Chaquetas</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-6 py-2 font-heading uppercase tracking-wide text-sm" data-category="Playeras">Playeras</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-6 py-2 font-heading uppercase tracking-wide text-sm" data-category="Pantalones">Pantalones</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-6 py-2 font-heading uppercase tracking-wide text-sm" data-category="Accesorios">Accesorios</button>
         </div>
 
-        <!-- Grid -->
-        <div id="shop-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Cargando... -->
-            <p class="col-span-full text-center font-heading text-xl animate-pulse">Buscando en el clóset de Stuffy...</p>
+        <!-- Grid de Productos (Aquí el JS inyecta las cards) -->
+        <div id="shop-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+            <!-- Estado de carga inicial -->
+            <div class="col-span-full flex flex-col items-center justify-center py-20 opacity-50">
+                <div class="animate-spin h-8 w-8 border-4 border-black border-t-transparent rounded-full mb-4"></div>
+                <p class="font-heading text-xl uppercase">Buscando en el clóset de Stuffy...</p>
+            </div>
         </div>
     </main>
 
-    <!-- ... FOOTER / SCRIPTS ... -->
+    <!-- FOOTER -->
+    <footer class="bg-[#F5F5DC] border-t-4 border-black py-8 text-center mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8 text-left">
+                <div>
+                    <h4 class="font-heading text-xl mb-4 uppercase">Random Stuff 4 Sale</h4>
+                    <p class="font-body text-sm">Curaduría vintage desde el corazón de la ciudad.</p>
+                </div>
+                <div>
+                    <h4 class="font-heading text-xl mb-4 uppercase">Ayuda</h4>
+                    <ul class="font-body text-sm space-y-2">
+                        <li><a href="#" class="hover:underline">Envíos</a></li>
+                        <li><a href="#" class="hover:underline">Tallas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading text-xl mb-4 uppercase">Contacto</h4>
+                    <p class="font-body text-sm">jbusinessg96@gmail.com</p>
+                </div>
+            </div>
+            <p class="font-heading text-xs uppercase opacity-40 border-t border-black pt-4">&copy; 2025 Random Stuff 4 Sale. Built with Hype.</p>
+        </div>
+    </footer>
 
+    <!-- SCRIPTS -->
+    <!-- RECUERDA: Reemplaza la API KEY abajo con la tuya de Snipcart -->
+    <div hidden id="snipcart" data-api-key="ZTRjNDlmNmEtNGI2Yi00OWY0LWIyNjEtMGRkODE3OTVhYTFlNjM5MDAzMjEyNjI3MjI1NTUz" data-config-modal-style="side"></div>
+    <script src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+    
+    <!-- Script Principal -->
+    <script src="assets/js/app.js"></script>
 </body>
+</html>
