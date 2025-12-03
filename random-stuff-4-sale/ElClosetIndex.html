@@ -1,0 +1,26 @@
+<!-- Mismo Head/Nav/Footer que index.html, cambia el contenido principal -->
+<!-- ... HEAD ... -->
+<body id="shop-page" class="flex flex-col min-h-screen">
+    <!-- ... NAV ... -->
+
+    <main class="container mx-auto px-4 py-8 flex-grow">
+        <h1 class="text-5xl font-heading mb-8 border-b-2 border-black inline-block">El Clóset</h1>
+        
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-4 mb-8">
+            <button class="filter-btn btn-stuffy bg-black text-white px-4 py-2 font-heading uppercase text-sm" data-category="all">Todo</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Chaquetas">Chaquetas</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Playeras">Playeras</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Pantalones">Pantalones</button>
+            <button class="filter-btn btn-stuffy bg-white text-black px-4 py-2 font-heading uppercase text-sm" data-category="Accesorios">Accesorios</button>
+        </div>
+
+        <!-- Grid -->
+        <div id="shop-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cargando... -->
+            <p class="col-span-full text-center font-heading text-xl animate-pulse">Buscando en el clóset de Stuffy...</p>
+        </div>
+    </main>
+
+    <!-- ... FOOTER / SCRIPTS ... -->
+</body>

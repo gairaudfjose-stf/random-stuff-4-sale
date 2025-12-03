@@ -1,0 +1,56 @@
+<!-- ... HEAD ... -->
+<body id="product-page" class="flex flex-col min-h-screen">
+    <!-- ... NAV ... -->
+
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <a href="tienda.html" class="font-heading uppercase text-sm mb-6 inline-block hover:underline"><- Volver al Clóset</a>
+        
+        <div id="product-detail" class="grid md:grid-cols-2 gap-12">
+            <!-- Galería -->
+            <div class="border-2 border-black bg-white p-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <img id="prod-img" src="" alt="" class="w-full h-auto object-cover aspect-[4/5]">
+            </div>
+
+            <!-- Info -->
+            <div class="flex flex-col justify-center">
+                <h1 id="prod-title" class="text-4xl md:text-6xl font-heading font-bold mb-2 leading-none"></h1>
+                <p id="prod-price" class="text-3xl text-[#E74C3C] font-heading mb-6"></p>
+                
+                <div class="border-y border-black py-4 mb-6 space-y-2 font-body">
+                    <p><strong>Condición:</strong> <span id="prod-condition"></span></p>
+                    <p><strong>Talla:</strong> <span id="prod-size"></span></p>
+                </div>
+
+                <p id="prod-desc" class="text-lg font-body mb-8 leading-relaxed"></p>
+
+                <div class="flex flex-col gap-4">
+                    <button id="btn-add-cart" class="snipcart-add-item btn-stuffy bg-black text-white text-xl font-heading uppercase py-4 px-6 w-full text-center hover:bg-[#E74C3C] border-2 border-black">
+                        Agregar al Carrito
+                    </button>
+                    
+                    <a id="btn-whatsapp" href="#" target="_blank" class="btn-stuffy bg-[#25D366] text-white text-xl font-heading uppercase py-3 px-6 w-full text-center border-2 border-black flex justify-center items-center gap-2">
+                        <span>💬</span> Preguntar por WhatsApp
+                    </a>
+                    <p class="text-xs text-center opacity-60 font-body">¿Dudas? Escríbeme directo. Si está aquí, es 1/1.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Producto -->
+        <div class="mt-16 border-t-4 border-black pt-8">
+            <h3 class="font-heading text-2xl mb-4">Lo que tienes que saber</h3>
+            <div class="grid md:grid-cols-2 gap-8 font-body text-sm">
+                <div>
+                    <h4 class="font-bold">¿Es original?</h4>
+                    <p>Todo lo que vende Stuffy es curado. Si es bootleg, te lo decimos. Si es real, lo certificamos con el ojo experto.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold">Envíos</h4>
+                    <p>Envíos a todo el país. Lo empacamos con stickers y mucho hype.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ... FOOTER / SCRIPTS ... -->
+</body>

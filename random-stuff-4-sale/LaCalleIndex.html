@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Stuff 4 Sale | Ropa Vintage & Streetwear</title>
+    <meta name="description" content="Tienda de ropa vintage 1/1 seleccionada por Stuffy. Drops semanales de streetwear, chaquetas y accesorios únicos.">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Snipcart -->
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+</head>
+<body id="home-page" class="flex flex-col min-h-screen">
+
+    <!-- Header / Nav -->
+    <nav class="border-b-4 border-black bg-[#F5F5DC] py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <!-- Stuffy Logo Placeholder -->
+                <div class="w-10 h-10 bg-[#E74C3C] rounded-full border-2 border-black flex items-center justify-center font-heading text-white">S</div>
+                <span class="font-heading text-2xl tracking-tighter">RandomStuff<span class="text-[#E74C3C]">4Sale</span></span>
+            </a>
+            <div class="hidden md:flex gap-6 font-heading text-lg uppercase">
+                <a href="tienda.html" class="hover:underline decoration-2 decoration-[#E74C3C]">El Clóset</a>
+                <a href="blog.html" class="hover:underline decoration-2 decoration-[#E74C3C]">El Fuego (Blog)</a>
+                <a href="about.html" class="hover:underline decoration-2 decoration-[#E74C3C]">La Historia</a>
+            </div>
+            <div class="flex gap-4 items-center">
+                <span class="font-heading text-sm cursor-pointer opacity-50">ES / EN</span>
+                <button class="snipcart-checkout flex items-center gap-1 font-heading uppercase border-2 border-black px-2 hover:bg-black hover:text-white transition">
+                    Cart (<span class="snipcart-items-count">0</span>)
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="container mx-auto px-4 py-16 text-center border-b-2 border-black border-dashed">
+        <h1 class="text-6xl md:text-8xl font-bold mb-4 transform -rotate-1">STUFFY TE TRAE <br><span class="text-[#E74C3C] bg-black px-4">EL HYPE</span></h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-body italic">"No vendemos ropa, rescatamos fits. Piezas 1/1 directo del clóset del tiempo."</p>
+        <a href="tienda.html" class="btn-stuffy inline-block bg-[#E74C3C] text-white text-2xl font-heading uppercase px-8 py-3 border-2 border-black">
+            Ver el Clóset
+        </a>
+    </header>
+
+    <!-- Featured Drops -->
+    <section class="container mx-auto px-4 py-16">
+        <div class="flex justify-between items-end mb-8 border-b border-black pb-2">
+            <h2 class="text-4xl font-bold">Últimos Drops</h2>
+            <a href="tienda.html" class="font-heading underline text-lg">Ver todo -></a>
+        </div>
+        <div id="featured-drops" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- JS injects content here -->
+        </div>
+    </section>
+
+    <!-- Blog Teaser -->
+    <section class="bg-black text-[#F5F5DC] py-16 border-t-4 border-[#E74C3C]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-8 text-center text-[#E74C3C]">Historias del Fuego</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <article class="border border-[#F5F5DC] p-4">
+                    <h3 class="text-2xl font-heading mb-2">Cómo cazar vintage</h3>
+                    <p class="text-sm opacity-80 mb-4">Por Stuffy</p>
+                    <p class="font-body text-sm mb-4">Guía básica para diferenciar una joya de un trapo viejo en el mercado de pulgas...</p>
+                    <a href="blog.html" class="text-[#E74C3C] font-heading uppercase">Leer más</a>
+                </article>
+                <article class="border border-[#F5F5DC] p-4">
+                    <h3 class="text-2xl font-heading mb-2">Cuida tu Denim</h3>
+                    <p class="text-sm opacity-80 mb-4">Por Stuffy</p>
+                    <p class="font-body text-sm mb-4">¿Lavar tus jeans? Piénsalo dos veces. Aquí te digo cómo mantener ese fade perfecto...</p>
+                    <a href="blog.html" class="text-[#E74C3C] font-heading uppercase">Leer más</a>
+                </article>
+                <article class="border border-[#F5F5DC] p-4">
+                    <h3 class="text-2xl font-heading mb-2">El drop de la semana</h3>
+                    <p class="text-sm opacity-80 mb-4">Por Stuffy</p>
+                    <p class="font-body text-sm mb-4">Lo que encontré en una bodega olvidada en el centro. Spoilers: hay mucho neón...</p>
+                    <a href="blog.html" class="text-[#E74C3C] font-heading uppercase">Leer más</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#F5F5DC] border-t-4 border-black py-12">
+        <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="font-heading text-2xl mb-4">Random Stuff 4 Sale</h4>
+                <p class="font-body text-sm">Curaduría de ropa vintage con alma. Desde Costa Rica para el mundo.</p>
+                <p class="mt-4 font-bold">@RSTUFF4SALECR</p>
+            </div>
+            <div>
+                <h4 class="font-heading text-2xl mb-4">Ayuda</h4>
+                <ul class="font-body text-sm space-y-2">
+                    <li><a href="#" class="hover:text-[#E74C3C]">Envíos y Entregas</a></li>
+                    <li><a href="#" class="hover:text-[#E74C3C]">Devoluciones (No hay, es vintage bro)</a></li>
+                    <li><a href="#" class="hover:text-[#E74C3C]">Guía de Tallas</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-heading text-2xl mb-4">Contacto</h4>
+                <p class="font-body text-sm">¿Dudas del fit? Escríbele a Stuffy.</p>
+                <a href="mailto:contact@randomstuff4sale.cr" class="block mt-2 underline">contact@randomstuff4sale.cr</a>
+            </div>
+        </div>
+        <div class="text-center mt-12 font-heading text-xs uppercase opacity-50">
+            &copy; 2025 Random Stuff 4 Sale. Built with Hype.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <div hidden id="snipcart" data-api-key="REPLACE_SNIPCART_PUBLIC_KEY" data-config-modal-style="side"></div>
+    <script src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

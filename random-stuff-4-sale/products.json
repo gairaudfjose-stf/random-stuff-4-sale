@@ -1,0 +1,98 @@
+[
+  {
+    "id": "sku-001",
+    "name": "Vintage Varsity Jacket",
+    "price": 65.00,
+    "category": "Chaquetas",
+    "size": "L",
+    "condition": "Excelente",
+    "tags": ["1/1", "hype"],
+    "slug": "vintage-varsity-jacket",
+    "image": "https://placehold.co/600x800/E74C3C/F5F5DC?text=Varsity+Jacket",
+    "description": "Una pieza clásica de los 90s. Lana auténtica y mangas de cuero. Perfecta para el frío urbano."
+  },
+  {
+    "id": "sku-002",
+    "name": "90s Band Tee (Nirvana style)",
+    "price": 25.00,
+    "category": "Playeras",
+    "size": "M",
+    "condition": "Buena",
+    "tags": ["vintage", "grunge"],
+    "slug": "90s-band-tee",
+    "image": "https://placehold.co/600x800/333/F5F5DC?text=Band+Tee",
+    "description": "Deslavada a la perfección. El algodón es suave y tiene ese fit boxy que buscas."
+  },
+  {
+    "id": "sku-003",
+    "name": "Corduroy Skate Pants",
+    "price": 40.00,
+    "category": "Pantalones",
+    "size": "32",
+    "condition": "Muy buena",
+    "tags": ["skate", "90s"],
+    "slug": "corduroy-skate-pants",
+    "image": "https://placehold.co/600x800/555/F5F5DC?text=Corduroy+Pants",
+    "description": "Pana gruesa resistente a caídas. Corte ancho para libertad de movimiento."
+  },
+  {
+    "id": "sku-004",
+    "name": "Retro Windbreaker",
+    "price": 45.00,
+    "category": "Chaquetas",
+    "size": "L",
+    "condition": "Muy buena",
+    "tags": ["sport", "colorblock"],
+    "slug": "retro-windbreaker",
+    "image": "https://placehold.co/600x800/E74C3C/fff?text=Windbreaker",
+    "description": "Rompevientos con bloques de color neón. El cierre funciona perfecto."
+  },
+  {
+    "id": "sku-005",
+    "name": "Leather Belt (Handmade)",
+    "price": 18.00,
+    "category": "Accesorios",
+    "size": "Única",
+    "condition": "Excelente",
+    "tags": ["artesanal"],
+    "slug": "leather-belt-handmade",
+    "image": "https://placehold.co/600x800/8B4513/F5F5DC?text=Leather+Belt",
+    "description": "Cuero genuino trabajado a mano. Hebilla de latón envejecido."
+  },
+  {
+    "id": "sku-006",
+    "name": "Fleece Hoodie (90s)",
+    "price": 50.00,
+    "category": "Playeras",
+    "size": "XL",
+    "condition": "Excelente",
+    "tags": ["1/1", "cozy"],
+    "slug": "fleece-hoodie-90s",
+    "image": "https://placehold.co/600x800/000/fff?text=Fleece+Hoodie",
+    "description": "Sudadera polar ultra caliente. Logos bordados y elástico intacto."
+  },
+  {
+    "id": "sku-007",
+    "name": "Denim Jacket (Distressed)",
+    "price": 70.00,
+    "category": "Chaquetas",
+    "size": "M",
+    "condition": "Buena",
+    "tags": ["vintage", "rock"],
+    "slug": "denim-jacket-distressed",
+    "image": "https://placehold.co/600x800/000080/fff?text=Denim+Jacket",
+    "description": "Desgaste natural real, no de fábrica. Mezclilla pesada americana."
+  },
+  {
+    "id": "sku-008",
+    "name": "Beanie (Stuffy Patch)",
+    "price": 12.00,
+    "category": "Accesorios",
+    "size": "Única",
+    "condition": "Nueva",
+    "tags": ["merch", "stuffy"],
+    "slug": "beanie-stuffy-patch",
+    "image": "https://placehold.co/600x800/E74C3C/fff?text=Stuffy+Beanie",
+    "description": "Gorro básico con el parche oficial de Stuffy. Para tapar el 'bad hair day'."
+  }
+]
