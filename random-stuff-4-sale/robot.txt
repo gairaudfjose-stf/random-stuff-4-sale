@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://TU_USUARIO.github.io/randomstuff4sale-site/sitemap.xml
+
+Sitemap: https://gairaudfjose-stf.github.io/random-stuff-4-sale/sitemap.xml
