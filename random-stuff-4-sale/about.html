@@ -1,7 +1,83 @@
-<!-- Estructura estándar, contenido simple -->
-<main class="container mx-auto px-4 py-12 max-w-3xl text-center">
-    <h1 class="text-6xl font-heading mb-6">¿Quién es Stuffy?</h1>
-    <div class="w-40 h-40 mx-auto bg-[#E74C3C] rounded-full border-4 border-black mb-8 flex items-center justify-center text-white text-6xl font-heading">S</div>
-    <p class="font-body text-xl mb-6">Stuffy no es solo una llama. Es el curador más exigente de la ciudad.</p>
-    <p class="font-body text-lg mb-6">Nuestra misión es simple: rescatar ropa con historia para que no termines vistiendo lo mismo que el maniquí del centro comercial.</p>
-</main>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Historia | Random Stuff 4 Sale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="about-page" class="flex flex-col min-h-screen">
+
+    <!-- NAV -->
+    <nav class="border-b-4 border-black bg-[#F5F5DC] py-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-[#E74C3C] rounded-full border-2 border-black flex items-center justify-center text-white font-heading text-xl group-hover:rotate-12 transition-transform">S</div>
+                <span class="font-heading text-2xl tracking-tighter uppercase hidden md:block">RandomStuff<span class="text-[#E74C3C]">4Sale</span></span>
+            </a>
+            <div class="hidden md:flex gap-6 font-heading text-lg uppercase">
+                <a href="tienda.html" class="hover:text-[#E74C3C] transition-colors">El Clóset</a>
+                <a href="blog.html" class="hover:text-[#E74C3C] transition-colors">Blog</a>
+                <a href="about.html" class="text-[#E74C3C] underline decoration-2">La Historia</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="snipcart-checkout flex items-center gap-2 font-heading uppercase border-2 border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition cursor-pointer">
+                    <span class="text-xl">🛒</span> <span class="snipcart-items-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto px-4 py-16 max-w-4xl text-center">
+        
+        <div class="mb-12">
+            <h1 class="text-6xl md:text-8xl font-heading uppercase mb-6 transform -rotate-2">¿Quién es Stuffy?</h1>
+            <div class="w-48 h-48 mx-auto bg-[#E74C3C] rounded-full border-4 border-black mb-8 flex items-center justify-center text-white text-8xl font-heading shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform">
+                S
+            </div>
+        </div>
+
+        <div class="space-y-8 text-xl font-body leading-relaxed text-left border-2 border-black bg-white p-8 md:p-12 shadow-lg">
+            <p>
+                <span class="font-bold text-3xl font-heading block mb-2">Hola, soy Stuffy.</span>
+                Y no, no soy solo una llama (aunque tengo el pelo igual de desordenado). Soy el curador más exigente de la ciudad.
+            </p>
+            <p>
+                <strong>Random Stuff 4 Sale</strong> nació en un garaje lleno de polvo, cajas de los 90s y una misión simple: rescatar ropa con historia para que no termines vistiendo lo mismo que el maniquí del centro comercial.
+            </p>
+            <p>
+                Cada pieza que ves aquí ha sido seleccionada a mano (o a pezuña). Buscamos en mercadillos, bodegas olvidadas y colecciones privadas para traerte ese <em>Holy Grail</em> que nadie más tiene.
+            </p>
+            <div class="border-t-2 border-dashed border-black pt-6 mt-6 text-center">
+                <p class="font-heading text-2xl uppercase mb-4">Nuestra Promesa:</p>
+                <ul class="list-none space-y-2 text-base">
+                    <li>✨ Si dice "Vintage", es Vintage real (20+ años).</li>
+                    <li>🧼 Todo viene lavado y listo para el fit.</li>
+                    <li>📦 Envíos rápidos porque el hype no espera.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <a href="tienda.html" class="btn-stuffy inline-block bg-black text-white text-2xl font-heading uppercase px-8 py-3 border-2 border-black hover:bg-[#E74C3C]">
+                Ver lo que encontré hoy
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#F5F5DC] border-t-4 border-black py-8 text-center mt-auto">
+        <p class="font-heading text-xs uppercase opacity-40">&copy; 2025 Random Stuff 4 Sale.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <div hidden id="snipcart" data-api-key="REPLACE_SNIPCART_PUBLIC_KEY" data-config-modal-style="side"></div>
+    <script src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
