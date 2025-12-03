@@ -1,5 +1,95 @@
-<main class="container mx-auto px-4 py-12">
-    <h1 class="text-6xl font-heading mb-12">El Fuego (Blog)</h1>
-    <!-- Lista estática de artículos similar al teaser del home pero expandida -->
-    <p class="font-body">Próximamente más historias del underground...</p>
-</main>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Fuego (Blog) | Random Stuff 4 Sale</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="blog-page" class="flex flex-col min-h-screen">
+
+    <!-- NAV -->
+    <nav class="border-b-4 border-black bg-[#F5F5DC] py-4 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-[#E74C3C] rounded-full border-2 border-black flex items-center justify-center text-white font-heading text-xl group-hover:rotate-12 transition-transform">S</div>
+                <span class="font-heading text-2xl tracking-tighter uppercase hidden md:block">RandomStuff<span class="text-[#E74C3C]">4Sale</span></span>
+            </a>
+            <div class="hidden md:flex gap-6 font-heading text-lg uppercase">
+                <a href="tienda.html" class="hover:text-[#E74C3C] transition-colors">El Clóset</a>
+                <a href="blog.html" class="text-[#E74C3C] underline decoration-2">Blog</a>
+                <a href="about.html" class="hover:text-[#E74C3C] transition-colors">La Historia</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="snipcart-checkout flex items-center gap-2 font-heading uppercase border-2 border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition cursor-pointer">
+                    <span class="text-xl">🛒</span> <span class="snipcart-items-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container mx-auto px-4 py-12 flex-grow">
+        <div class="text-center mb-16">
+            <h1 class="text-6xl font-heading uppercase mb-4">El Fuego <span class="text-[#E74C3C]">🔥</span></h1>
+            <p class="font-body text-xl">Guías, historias del underground y consejos de Stuffy.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Articulo 1 -->
+            <article class="border-2 border-black bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300">
+                <div class="h-48 bg-gray-200 border-b-2 border-black flex items-center justify-center overflow-hidden">
+                    <span class="text-4xl">🧥</span>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold font-heading text-[#E74C3C] uppercase mb-2 block">Guías</span>
+                    <h2 class="text-2xl font-heading mb-3 uppercase leading-none">Cómo cazar vintage</h2>
+                    <p class="font-body text-sm mb-4 text-gray-600">Guía básica para diferenciar una joya de un trapo viejo en el mercado de pulgas. Aprende a leer etiquetas.</p>
+                    <a href="#" class="inline-block font-heading uppercase border-b-2 border-black hover:text-[#E74C3C] hover:border-[#E74C3C]">Leer Artículo -></a>
+                </div>
+            </article>
+
+            <!-- Articulo 2 -->
+            <article class="border-2 border-black bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300">
+                <div class="h-48 bg-gray-800 border-b-2 border-black flex items-center justify-center overflow-hidden">
+                    <span class="text-4xl">👖</span>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold font-heading text-[#E74C3C] uppercase mb-2 block">Cuidado</span>
+                    <h2 class="text-2xl font-heading mb-3 uppercase leading-none">Cuida tu Denim</h2>
+                    <p class="font-body text-sm mb-4 text-gray-600">¿Lavar tus jeans? Piénsalo dos veces. Aquí te digo cómo mantener ese fade perfecto sin destruir la tela.</p>
+                    <a href="#" class="inline-block font-heading uppercase border-b-2 border-black hover:text-[#E74C3C] hover:border-[#E74C3C]">Leer Artículo -></a>
+                </div>
+            </article>
+
+            <!-- Articulo 3 -->
+            <article class="border-2 border-black bg-white hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300">
+                <div class="h-48 bg-[#E74C3C] border-b-2 border-black flex items-center justify-center overflow-hidden">
+                    <span class="text-4xl text-white">📦</span>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-bold font-heading text-[#E74C3C] uppercase mb-2 block">News</span>
+                    <h2 class="text-2xl font-heading mb-3 uppercase leading-none">El drop de la semana</h2>
+                    <p class="font-body text-sm mb-4 text-gray-600">Lo que encontré en una bodega olvidada en el centro. Spoilers: hay mucho neón y rompevientos.</p>
+                    <a href="#" class="inline-block font-heading uppercase border-b-2 border-black hover:text-[#E74C3C] hover:border-[#E74C3C]">Leer Artículo -></a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#F5F5DC] border-t-4 border-black py-8 text-center mt-auto">
+        <p class="font-heading text-xs uppercase opacity-40">&copy; 2025 Random Stuff 4 Sale.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <div hidden id="snipcart" data-api-key="ZTRjNDlmNmEtNGI2Yi00OWY0LWIyNjEtMGRkODE3OTVhYTFlNjM5MDAzMjEyNjI3MjI1NTUz" data-config-modal-style="side"></div>
+    <script src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
