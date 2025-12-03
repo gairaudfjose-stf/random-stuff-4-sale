@@ -1,13 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   
+   <!-- PÁGINAS PRINCIPALES -->
    <url>
-      <loc>https://TU_USUARIO.github.io/randomstuff4sale-site/</loc>
-      <lastmod>2023-10-27</lastmod>
+      <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/</loc>
+      <lastmod>2025-12-02</lastmod>
       <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://TU_USUARIO.github.io/randomstuff4sale-site/tienda.html</loc>
+      <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/tienda.html</loc>
+      <lastmod>2025-12-02</lastmod>
       <changefreq>daily</changefreq>
+      <priority>0.9</priority>
    </url>
-   <!-- Añade tus páginas aquí -->
+   <url>
+      <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/blog.html</loc>
+      <lastmod>2025-12-02</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/about.html</loc>
+      <lastmod>2025-12-02</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+
+   <!-- PRODUCTOS (URLs con parámetros para SEO) -->
+   <!-- Esto ayuda a Google a saber que estas páginas existen aunque se generen con JS -->
+   
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=vintage-varsity-jacket</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=90s-band-tee</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=corduroy-skate-pants</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=retro-windbreaker</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=leather-belt-handmade</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=fleece-hoodie-90s</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=denim-jacket-distressed</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+   <url>
+       <loc>https://gairaudfjose-stf.github.io/random-stuff-4-sale/producto.html?slug=beanie-stuffy-patch</loc>
+       <changefreq>weekly</changefreq>
+       <priority>0.8</priority>
+   </url>
+
 </urlset>
