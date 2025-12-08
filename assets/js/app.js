@@ -1,7 +1,7 @@
 // Configuración
 const WHATSAPP_PHONE = "50670962156"; // REPLACE_WHATSAPP_NUMBER (Formato: PAIS+NUMERO sin +)
 const PRODUCTS_URL = "./products.json";
-const BASE_URL = "https://gairaudfjose-stf.github.io/randomstuff4sale-site/products.json";
+const BASE_URL = "https://gairaudfjose-stf.github.io/random-stuff-4-sale/products.json";
 
 // Cargar productos al iniciar
 document.addEventListener('DOMContentLoaded', () => {
