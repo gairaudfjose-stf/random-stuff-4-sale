@@ -1,6 +1,7 @@
 // Configuración
 const WHATSAPP_PHONE = "50670962156"; // REPLACE_WHATSAPP_NUMBER (Formato: PAIS+NUMERO sin +)
 const PRODUCTS_URL = "./products.json";
+const BASE_URL = "https://gairaudfjose-stf.github.io/randomstuff4sale-site/products.json";
 
 // Cargar productos al iniciar
 document.addEventListener('DOMContentLoaded', () => {
@@ -99,7 +100,7 @@ function renderSingleProduct(products) {
     const btnCart = document.getElementById('btn-add-cart');
     btnCart.dataset.itemId = product.id;
     btnCart.dataset.itemPrice = product.price;
-    btnCart.dataset.itemUrl = window.location.href; // URL actual para validación básica
+    btnCart.dataset.itemUrl = BASE_URL;
     btnCart.dataset.itemDescription = product.description;
     btnCart.dataset.itemImage = product.image;
     btnCart.dataset.itemName = product.name;
@@ -129,7 +130,7 @@ function createProductCard(product) {
             <button class="snipcart-add-item btn-stuffy bg-black text-white px-3 py-1 text-sm font-heading uppercase"
                 data-item-id="${product.id}"
                 data-item-price="${product.price}"
-                data-item-url="products.json" 
+                data-item-url="${BASE_URL}" 
                 data-item-description="${product.description}"
                 data-item-image="${product.image}"
                 data-item-name="${product.name}">
