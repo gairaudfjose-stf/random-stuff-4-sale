@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backstage | Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Helvetica', sans-serif; background-color: #1a1a1a; color: #f0f0f0; }
+        .font-heading { font-family: 'Oswald', sans-serif; }
+        /* Ocultar contenido hasta loguearse */
+        #admin-content { display: none; }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+
+    <!-- LOGIN SIMPLE -->
+    <div id="login-screen" class="fixed inset-0 bg-[#1a1a1a] flex flex-col items-center justify-center z-50">
+        <div class="bg-black p-8 border-2 border-[#E74C3C] text-center max-w-md w-full">
+            <h1 class="text-4xl font-heading text-[#E74C3C] mb-4">ZONA RESTRINGIDA</h1>
+            <p class="mb-6 text-gray-400">Solo personal autorizado (Stuffy).</p>
+            <input type="password" id="password-input" placeholder="Contraseña..." class="w-full bg-gray-800 text-white p-3 border border-gray-600 mb-4 focus:outline-none focus:border-[#E74C3C]">
+            <button onclick="checkLogin()" class="w-full bg-[#E74C3C] text-white font-heading uppercase p-3 hover:bg-red-600 transition">Entrar</button>
+            <p id="error-msg" class="text-red-500 mt-4 hidden">Contraseña incorrecta, bro.</p>
+        </div>
+    </div>
+
+    <!-- PANEL DE ADMINISTRACIÓN -->
+    <div id="admin-content" class="max-w-7xl mx-auto">
+        
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-10 border-b border-gray-700 pb-4">
+            <h1 class="text-4xl font-heading text-white">📦 Inventario <span class="text-[#E74C3C]">Random Stuff</span></h1>
+            <div class="flex gap-4">
+                <a href="index.html" target="_blank" class="text-gray-400 hover:text-white underline">Ver Tienda</a>
+                <button onclick="logout()" class="text-red-400 hover:text-red-500 underline">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- COLUMNA IZQUIERDA: GENERADOR DE PRODUCTOS -->
+            <div class="bg-gray-900 p-6 border border-gray-700 rounded-lg h-fit sticky top-4">
+                <h2 class="text-2xl font-heading mb-6 text-[#E74C3C] border-b border-gray-700 pb-2">Agregar Nuevo Drop</h2>
+                
+                <form id="product-form" class="space-y-4 text-sm">
+                    <div>
+                        <label class="block text-gray-500 mb-1">Nombre del Producto</label>
+                        <input type="text" id="p-name" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white" required>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-500 mb-1">Precio ($)</label>
+                            <input type="number" step="0.01" id="p-price" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-500 mb-1">Talla</label>
+                            <select id="p-size" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                                <option>S</option><option>M</option><option>L</option><option>XL</option><option>Única</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-500 mb-1">Categoría</label>
+                        <select id="p-category" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                            <option>Chaquetas</option>
+                            <option>Playeras</option>
+                            <option>Pantalones</option>
+                            <option>Accesorios</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-500 mb-1">Condición</label>
+                        <select id="p-condition" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                            <option>Excelente</option>
+                            <option>Muy buena</option>
+                            <option>Buena</option>
+                            <option>Nueva</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-500 mb-1">URL Imagen (pega el link aquí)</label>
+                        <input type="url" id="p-image" placeholder="https://..." class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white" required>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-500 mb-1">Descripción</label>
+                        <textarea id="p-desc" rows="3" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white"></textarea>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="p-tag-1of1" class="rounded bg-gray-800 border-gray-700">
+                        <label for="p-tag-1of1" class="text-gray-400">Es pieza única (1/1)</label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition">
+                        GENERAR CÓDIGO
+                    </button>
+                </form>
+
+                <!-- Área de resultado -->
+                <div id="result-area" class="mt-6 hidden">
+                    <p class="text-green-400 text-xs mb-2">✅ Código generado. Copia esto y pégalo al final de tu <code>products.json</code> en GitHub:</p>
+                    <textarea id="json-output" class="w-full h-32 bg-black text-green-500 font-mono text-xs p-2 border border-green-900 rounded" readonly></textarea>
+                    <button onclick="copyToClipboard()" class="mt-2 w-full bg-gray-700 hover:bg-gray-600 text-white text-xs py-1 rounded">Copiar al portapapeles</button>
+                </div>
+            </div>
+
+            <!-- COLUMNA DERECHA: TABLA DE INVENTARIO ACTUAL -->
+            <div class="lg:col-span-2">
+                <div class="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden">
+                    <div class="p-4 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
+                        <h2 class="font-heading text-xl">Inventario Activo</h2>
+                        <span id="total-items" class="bg-blue-900 text-blue-200 text-xs px-2 py-1 rounded-full">0 items</span>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-400">
+                            <thead class="bg-gray-800 text-gray-200 uppercase font-heading text-xs">
+                                <tr>
+                                    <th class="px-4 py-3">Foto</th>
+                                    <th class="px-4 py-3">Nombre / SKU</th>
+                                    <th class="px-4 py-3">Categoría</th>
+                                    <th class="px-4 py-3">Precio</th>
+                                    <th class="px-4 py-3">Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-table" class="divide-y divide-gray-700">
+                                <!-- JS llenará esto -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- 1. SEGURIDAD BÁSICA ---
+        // Cambia "admin123" por la contraseña que tú quieras
+        const PASSWORD = "stuffy"; 
+
+        function checkLogin() {
+            const input = document.getElementById('password-input').value;
+            if(input === PASSWORD) {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-content').style.display = 'block';
+                loadInventory(); // Cargar datos al entrar
+            } else {
+                document.getElementById('error-msg').classList.remove('hidden');
+            }
+        }
+
+        function logout() {
+            location.reload();
+        }
+
+        // --- 2. CARGAR INVENTARIO (LEER JSON) ---
+        // Reemplaza TU_USUARIO aquí también
+        const PRODUCTS_URL = "./products.json"; 
+
+        async function loadInventory() {
+            try {
+                // Usamos un truco para que no lea caché vieja
+                const response = await fetch(PRODUCTS_URL + '?t=' + new Date().getTime());
+                const products = await response.json();
+                
+                const tbody = document.getElementById('inventory-table');
+                document.getElementById('total-items').innerText = `${products.length} items`;
+                tbody.innerHTML = '';
+
+                products.forEach(p => {
+                    const row = `
+                        <tr class="hover:bg-gray-800 transition">
+                            <td class="px-4 py-3">
+                                <img src="${p.image}" class="w-10 h-10 object-cover rounded border border-gray-600">
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="text-white font-bold">${p.name}</div>
+                                <div class="text-xs text-gray-500">${p.id}</div>
+                            </td>
+                            <td class="px-4 py-3">
+                                <span class="bg-gray-700 px-2 py-1 rounded text-xs">${p.category}</span>
+                            </td>
+                            <td class="px-4 py-3 text-[#E74C3C] font-bold">
+                                $${p.price.toFixed(2)}
+                            </td>
+                            <td class="px-4 py-3">
+                                <a href="producto.html?slug=${p.slug}" target="_blank" class="text-blue-400 hover:underline">Ver en web</a>
+                            </td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+
+            } catch (error) {
+                console.error("Error cargando inventario", error);
+                alert("No pude leer el products.json. Revisa la consola.");
+            }
+        }
+
+        // --- 3. GENERADOR DE CÓDIGO ---
+        document.getElementById('product-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Recoger datos del form
+            const name = document.getElementById('p-name').value;
+            const price = parseFloat(document.getElementById('p-price').value);
+            const size = document.getElementById('p-size').value;
+            const category = document.getElementById('p-category').value;
+            const condition = document.getElementById('p-condition').value;
+            const image = document.getElementById('p-image').value;
+            const desc = document.getElementById('p-desc').value;
+            const is1of1 = document.getElementById('p-tag-1of1').checked;
+
+            // Generar ID y Slug automáticos
+            const randomId = Math.floor(Math.random() * 9000) + 1000;
+            const id = `sku-${randomId}`;
+            const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
+            const tags = [];
+            if(is1of1) tags.push("1/1");
+            tags.push(category.toLowerCase());
+
+            // Crear objeto
+            const newProduct = {
+                id: id,
+                name: name,
+                price: price,
+                url: "/products.json", // Importante para tu fix de Snipcart
+                category: category,
+                size: size,
+                condition: condition,
+                tags: tags,
+                slug: slug,
+                image: image,
+                description: desc
+            };
+
+            // Convertir a texto JSON (sin los corchetes exteriores, solo el objeto con coma)
+            const jsonString = ",\n" + JSON.stringify(newProduct, null, 2);
+
+            // Mostrar
+            document.getElementById('result-area').classList.remove('hidden');
+            document.getElementById('json-output').value = jsonString;
+        });
+
+        function copyToClipboard() {
+            const copyText = document.getElementById("json-output");
+            copyText.select();
+            document.execCommand("copy");
+            alert("¡Copiado! Ahora ve a GitHub, abre products.json y pégalo al final (antes del último corchete ']').");
+        }
+    </script>
+</body>
+</html>
