@@ -3,117 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del Drop | Random Stuff 4 Sale</title>
-    
-    <!-- Estilos y Fuentes -->
+    <title>Backstage | Admin Panel Seguro</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.css" />
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-
-<!-- El ID "product-page" es vital para que el JS sepa que debe cargar un solo producto -->
-<body id="product-page" class="flex flex-col min-h-screen">
-
-    <!-- NAV (Menú Superior) -->
-    <nav class="border-b-4 border-black bg-[#F5F5DC] py-4 sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-[#E74C3C] rounded-full border-2 border-black flex items-center justify-center text-white font-heading text-xl group-hover:rotate-12 transition-transform">S</div>
-                <span class="font-heading text-2xl tracking-tighter uppercase hidden md:block">RandomStuff<span class="text-[#E74C3C]">4Sale</span></span>
-            </a>
-            
-            <!-- Botón Carrito -->
-            <button class="snipcart-checkout flex items-center gap-2 font-heading uppercase border-2 border-black px-3 py-1 bg-white hover:bg-black hover:text-white transition cursor-pointer">
-                <span class="text-xl">🛒</span> 
-                <span class="snipcart-items-count">0</span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="container mx-auto px-4 py-12 flex-grow">
-        <!-- Botón Volver -->
-        <a href="tienda.html" class="font-heading uppercase text-sm mb-6 inline-block hover:underline hover:text-[#E74C3C] transition-colors">
-            &larr; Volver al Clóset
-        </a>
-        
-        <!-- Grid del Producto -->
-        <div id="product-detail" class="grid md:grid-cols-2 gap-12">
-            
-            <!-- Columna Izquierda: Galería/Imagen -->
-            <div class="relative">
-                <div class="border-2 border-black bg-white p-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                    <!-- La imagen se inyecta vía JS aquí -->
-                    <img id="prod-img" src="" alt="Cargando drop..." class="w-full h-auto object-cover aspect-[4/5] bg-gray-100">
-                </div>
-            </div>
-
-            <!-- Columna Derecha: Información -->
-            <div class="flex flex-col justify-center">
-                <h1 id="prod-title" class="text-4xl md:text-6xl font-heading font-bold mb-2 leading-none uppercase">Cargando...</h1>
-                <p id="prod-price" class="text-3xl text-[#E74C3C] font-heading mb-6 border-b-2 border-black border-dashed pb-4">...</p>
-                
-                <div class="grid grid-cols-2 gap-4 mb-6 font-body bg-white border border-black p-4">
-                    <div>
-                        <span class="block text-xs uppercase text-gray-500 font-bold">Condición:</span> 
-                        <span id="prod-condition" class="text-lg">...</span>
-                    </div>
-                    <div>
-                        <span class="block text-xs uppercase text-gray-500 font-bold">Talla:</span> 
-                        <span id="prod-size" class="text-lg font-bold">...</span>
-                    </div>
-                </div>
-
-                <p id="prod-desc" class="text-lg font-body mb-8 leading-relaxed text-gray-800">...</p>
-
-                <!-- Botones de Acción -->
-                <div class="flex flex-col gap-4">
-                    <!-- Botón Snipcart (Datos se llenan vía JS) -->
-                    <button id="btn-add-cart" class="snipcart-add-item btn-stuffy bg-black text-white text-xl font-heading uppercase py-4 px-6 w-full text-center hover:bg-[#E74C3C] border-2 border-black transition-colors">
-                        Agregar al Carrito
-                    </button>
-                    
-                    <!-- Botón WhatsApp (Link se genera vía JS) -->
-                    <a id="btn-whatsapp" href="#" target="_blank" class="btn-stuffy bg-[#25D366] text-white text-xl font-heading uppercase py-3 px-6 w-full text-center border-2 border-black flex justify-center items-center gap-2 hover:bg-[#20bd5a] transition-colors">
-                        <span>💬</span> Preguntar por WhatsApp
-                    </a>
-                    <p class="text-xs text-center opacity-60 font-body italic mt-2">¿Dudas? Escríbeme directo. Si está aquí, es 1/1.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Sección FAQ debajo del producto -->
-        <div class="mt-16 border-t-4 border-black pt-8">
-            <h3 class="font-heading text-2xl mb-4 uppercase">Lo que tienes que saber</h3>
-            <div class="grid md:grid-cols-2 gap-8 font-body text-sm">
-                <div>
-                    <h4 class="font-bold uppercase mb-1">¿Es original?</h4>
-                    <p>Todo lo que vende Stuffy es curado. Si es bootleg, te lo decimos claro. Si es real, lo certificamos con el ojo experto.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold uppercase mb-1">Envíos</h4>
-                    <p>Envíos a todo el país. Lo empacamos con stickers y mucho hype. Tarda de 2 a 3 días hábiles.</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-[#F5F5DC] border-t-4 border-black py-8 text-center mt-auto">
-        <div class="container mx-auto px-4">
-            <p class="font-heading text-xs uppercase opacity-40">&copy; 2025 Random Stuff 4 Sale. Built with Hype.</p>
-        </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-    <!-- RECUERDA: Reemplaza la API KEY abajo con la tuya de Snipcart -->
-    <div hidden id="snipcart" data-api-key="ZTRjNDlmNmEtNGI2Yi00OWY0LWIyNjEtMGRkODE3OTVhYTFlNjM5MDAzMjEyNjI3MjI1NTUz" data-config-modal-style="side"></div>
-    <script src="https://cdn.snipcart.com/themes/v3.4.1/default/snipcart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Librería de Encriptación -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     
-    <!-- Script Principal -->
-    <script src="assets/js/app.js"></script>
+    <style>
+        body { font-family: 'Helvetica', sans-serif; background-color: #1a1a1a; color: #f0f0f0; }
+        .font-heading { font-family: 'Oswald', sans-serif; }
+        #admin-content { display: none; }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+    <!-- LOGIN -->
+    <div id="login-screen" class="fixed inset-0 bg-[#1a1a1a] flex flex-col items-center justify-center z-50">
+        <div class="bg-black p-8 border-2 border-[#E74C3C] text-center max-w-md w-full shadow-2xl">
+            <h1 class="text-4xl font-heading text-[#E74C3C] mb-4">ZONA RESTRINGIDA</h1>
+            <p class="mb-6 text-gray-400">Introduce la llave maestra para desencriptar costos.</p>
+            <input type="password" id="password-input" placeholder="Contraseña..." class="w-full bg-gray-800 text-white p-3 border border-gray-600 mb-4 focus:outline-none focus:border-[#E74C3C] text-center">
+            <button onclick="checkLogin()" class="w-full bg-[#E74C3C] text-white font-heading uppercase p-3 hover:bg-red-600 transition">Desencriptar y Entrar</button>
+            <p id="error-msg" class="text-red-500 mt-4 hidden">Contraseña incorrecta.</p>
+        </div>
+    </div>
+
+    <!-- PANEL -->
+    <div id="admin-content" class="max-w-[1600px] mx-auto">
+        
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 border-b border-gray-700 pb-4 gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-heading text-white">📦 Gestión <span class="text-[#E74C3C]">Segura</span></h1>
+                <p class="text-xs text-gray-500 mt-1">Los costos están encriptados en la base de datos.</p>
+            </div>
+            <div class="flex gap-4 text-sm">
+                <a href="index.html" target="_blank" class="text-gray-400 hover:text-white underline">Ir a Tienda</a>
+                <button onclick="logout()" class="text-red-400 hover:text-red-500 underline">Salir</button>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <!-- GENERADOR (Izquierda) -->
+            <div class="lg:col-span-4 bg-gray-900 p-6 border border-gray-700 rounded-lg h-fit sticky top-4 shadow-lg">
+                <h2 class="text-2xl font-heading mb-4 text-[#E74C3C] border-b border-gray-700 pb-2">Nuevo Producto</h2>
+                
+                <form id="product-form" class="space-y-3 text-sm">
+                    <!-- Campos iguales que antes -->
+                    <div>
+                        <label class="block text-gray-500 mb-1 text-xs uppercase">Nombre</label>
+                        <input type="text" id="p-name" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white" required>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 bg-gray-800 p-3 rounded border border-gray-700">
+                        <div>
+                            <label class="block text-[#E74C3C] mb-1 text-xs uppercase font-bold">Venta ($)</label>
+                            <input type="number" step="0.01" id="p-price" class="w-full bg-black border border-gray-600 p-2 rounded text-white font-bold" required>
+                        </div>
+                        <div>
+                            <label class="block text-blue-400 mb-1 text-xs uppercase font-bold">Costo ($)</label>
+                            <input type="number" step="0.01" id="p-cost" class="w-full bg-black border border-gray-600 p-2 rounded text-white" placeholder="0.00">
+                            <p class="text-[10px] text-gray-500 mt-1">*Se guardará encriptado</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-gray-500 mb-1 text-xs uppercase">Talla</label>
+                            <select id="p-size" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                                <option>S</option><option>M</option><option>L</option><option>XL</option><option>Única</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-500 mb-1 text-xs uppercase">Categoría</label>
+                            <select id="p-category" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                                <option>Chaquetas</option><option>Playeras</option><option>Pantalones</option><option>Accesorios</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-500 mb-1 text-xs uppercase">Medidas</label>
+                        <input type="text" id="p-measurements" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                    </div>
+                     <div>
+                        <label class="block text-gray-500 mb-1 text-xs uppercase">Condición</label>
+                        <select id="p-condition" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white">
+                            <option>Excelente</option><option>Muy buena</option><option>Buena</option><option>Nueva</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-500 mb-1 text-xs uppercase">URL Imagen</label>
+                        <input type="url" id="p-image" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white" required>
+                    </div>
+                    <div>
+                        <label class="block text-gray-500 mb-1 text-xs uppercase">Descripción</label>
+                        <textarea id="p-desc" rows="2" class="w-full bg-gray-800 border border-gray-700 p-2 rounded text-white"></textarea>
+                    </div>
+                    <div class="flex items-center gap-2 pt-2">
+                        <input type="checkbox" id="p-tag-1of1" class="rounded bg-gray-800 border-gray-700 accent-[#E74C3C]">
+                        <label for="p-tag-1of1" class="text-gray-400 text-xs uppercase">Es pieza única (1/1)</label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#E74C3C] hover:bg-red-600 text-white font-heading uppercase tracking-wider py-3 rounded transition shadow-lg mt-4">
+                        Generar JSON Seguro
+                    </button>
+                </form>
+
+                <div id="result-area" class="mt-6 hidden">
+                    <p class="text-green-400 text-xs mb-2">✅ Código generado (Costo oculto):</p>
+                    <textarea id="json-output" class="w-full h-32 bg-black text-green-500 font-mono text-xs p-2 border border-green-900 rounded focus:outline-none" readonly></textarea>
+                    <button onclick="copyToClipboard()" class="mt-2 w-full bg-gray-700 hover:bg-gray-600 text-white text-xs py-2 rounded uppercase font-bold">Copiar</button>
+                </div>
+            </div>
+
+            <!-- TABLA (Derecha) -->
+            <div class="lg:col-span-8">
+                <div class="bg-gray-900 border border-gray-700 rounded-lg overflow-hidden shadow-lg">
+                    <div class="p-4 bg-gray-800 border-b border-gray-700 flex justify-between items-center">
+                        <h2 class="font-heading text-xl">Inventario</h2>
+                        <div class="text-right">
+                             <span id="total-profit" class="bg-green-900 text-green-200 text-xs px-2 py-1 rounded-full">Ganancia Potencial: ---</span>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-400">
+                            <thead class="bg-black text-gray-500 uppercase font-heading text-xs tracking-wider">
+                                <tr>
+                                    <th class="px-4 py-3">Item</th>
+                                    <th class="px-4 py-3">Detalle</th>
+                                    <th class="px-4 py-3 text-right">Costo (Privado)</th>
+                                    <th class="px-4 py-3 text-right">Venta</th>
+                                    <th class="px-4 py-3 text-right">Margen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-table" class="divide-y divide-gray-800"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURACIÓN DE SEGURIDAD
+        const SECRET_KEY = "stuffy"; // Esta es tu contraseña. Úsala para ENCRIPTAR y DESENCRIPTAR.
+        const PRODUCTS_URL = "./products.json"; 
+        
+        let currentPassword = "";
+
+        // 1. LOGIN
+        function checkLogin() {
+            const input = document.getElementById('password-input').value;
+            // Aquí validamos simple, pero la magia real ocurre al intentar desencriptar los datos
+            if(input === SECRET_KEY) {
+                currentPassword = input; // Guardamos la contraseña en memoria temporalmente
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-content').style.display = 'block';
+                loadInventory();
+            } else {
+                document.getElementById('error-msg').classList.remove('hidden');
+            }
+        }
+        function logout() { location.reload(); }
+
+        // 2. FUNCIÓN PARA ENCRIPTAR (Cifrar)
+        function encryptData(data) {
+            return CryptoJS.AES.encrypt(data.toString(), currentPassword).toString();
+        }
+
+        // 3. FUNCIÓN PARA DESENCRIPTAR (Descifrar)
+        function decryptData(ciphertext) {
+            try {
+                const bytes = CryptoJS.AES.decrypt(ciphertext, currentPassword);
+                const originalText = bytes.toString(CryptoJS.enc.Utf8);
+                return originalText ? parseFloat(originalText) : 0;
+            } catch (e) {
+                return 0; // Si falla (contraseña mal o dato corrupto), devuelve 0
+            }
+        }
+
+        // 4. CARGAR Y DESENCRIPTAR INVENTARIO
+        async function loadInventory() {
+            try {
+                const response = await fetch(PRODUCTS_URL + '?t=' + new Date().getTime());
+                const products = await response.json();
+                
+                const tbody = document.getElementById('inventory-table');
+                tbody.innerHTML = '';
+                let totalProfit = 0;
+
+                products.forEach(p => {
+                    // INTENTAR LEER EL COSTO
+                    let cost = 0;
+                    
+                    // Si el costo es un string largo (encriptado), lo desencriptamos
+                    if (typeof p.cost === 'string' && p.cost.length > 10) {
+                        cost = decryptData(p.cost);
+                    } else if (typeof p.cost === 'number') {
+                        cost = p.cost; // Compatibilidad con datos viejos sin encriptar
+                    }
+
+                    const profit = p.price - cost;
+                    totalProfit += profit;
+                    const profitClass = profit > 0 ? 'text-green-400' : 'text-gray-500';
+
+                    const row = `
+                        <tr class="hover:bg-gray-800 transition">
+                            <td class="px-4 py-3">
+                                <img src="${p.image}" class="w-10 h-10 object-cover rounded">
+                            </td>
+                            <td class="px-4 py-3">
+                                <div class="text-white font-bold">${p.name}</div>
+                                <div class="text-xs text-gray-500">${p.id}</div>
+                            </td>
+                            <td class="px-4 py-3 text-right font-mono text-blue-400">
+                                $${cost.toFixed(2)}
+                            </td>
+                            <td class="px-4 py-3 text-right font-mono text-[#E74C3C] font-bold">
+                                $${p.price.toFixed(2)}
+                            </td>
+                            <td class="px-4 py-3 text-right font-mono font-bold ${profitClass}">
+                                +$${profit.toFixed(2)}
+                            </td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+
+                document.getElementById('total-profit').innerText = `Ganancia Potencial: $${totalProfit.toFixed(2)}`;
+
+            } catch (error) {
+                console.error(error);
+                alert("Error cargando inventario.");
+            }
+        }
+
+        // 5. GENERAR JSON CON COSTO ENCRIPTADO
+        document.getElementById('product-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('p-name').value;
+            const price = parseFloat(document.getElementById('p-price').value);
+            const costInput = parseFloat(document.getElementById('p-cost').value) || 0;
+            
+            // --- AQUÍ OCURRE LA MAGIA ---
+            // Encriptamos el costo antes de guardarlo
+            const encryptedCost = encryptData(costInput);
+            // ----------------------------
+
+            const measurements = document.getElementById('p-measurements').value;
+            const size = document.getElementById('p-size').value;
+            const category = document.getElementById('p-category').value;
+            const condition = document.getElementById('p-condition').value;
+            const image = document.getElementById('p-image').value;
+            const desc = document.getElementById('p-desc').value;
+            const is1of1 = document.getElementById('p-tag-1of1').checked;
+
+            const randomId = Math.floor(Math.random() * 9000) + 1000;
+            const id = `sku-${randomId}`;
+            const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+            const tags = is1of1 ? ["1/1", category.toLowerCase()] : [category.toLowerCase()];
+
+            const newProduct = {
+                id: id,
+                name: name,
+                price: price,
+                cost: encryptedCost, // GUARDAMOS LA VERSIÓN ILEGIBLE
+                measurements: measurements,
+                url: "/products.json",
+                category: category,
+                size: size,
+                condition: condition,
+                tags: tags,
+                slug: slug,
+                image: image,
+                description: desc
+            };
+
+            const jsonString = ",\n" + JSON.stringify(newProduct, null, 2);
+            document.getElementById('result-area').classList.remove('hidden');
+            document.getElementById('json-output').value = jsonString;
+        });
+
+        function copyToClipboard() {
+            const copyText = document.getElementById("json-output");
+            copyText.select();
+            document.execCommand("copy");
+            alert("¡Copiado! Ahora pégalo en GitHub.");
+        }
+    </script>
 </body>
 </html>
-
