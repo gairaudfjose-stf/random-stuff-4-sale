@@ -118,7 +118,7 @@ function createProductCard(product) {
     return `
     <div class="border-2 border-black bg-white p-4 relative hover:shadow-lg transition-shadow">
         ${product.tags.includes('1/1') ? '<span class="absolute top-2 right-2 bg-[#E74C3C] text-white text-xs font-heading px-2 py-1 uppercase border border-black transform rotate-2">1/1 Rare</span>' : ''}
-        <a href="producto.html?slug=${product.slug}">
+        <a href="products.html?slug=${product.slug}">
             <div class="aspect-square bg-gray-200 mb-4 overflow-hidden border border-black">
                 <img src="${product.image}" alt="${product.name}" loading="lazy" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500">
             </div>
