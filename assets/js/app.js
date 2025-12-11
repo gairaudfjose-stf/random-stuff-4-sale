@@ -92,6 +92,8 @@ function renderSingleProduct(products) {
     document.getElementById('prod-desc').innerText = product.description;
     document.getElementById('prod-condition').innerText = product.condition;
     document.getElementById('prod-size').innerText = product.size;
+    document.getElementById('prod-measurements').innerText = product.measurements || "Consultar al DM";
+
 
     // Generar JSON-LD para este producto
     injectProductSchema(product);
