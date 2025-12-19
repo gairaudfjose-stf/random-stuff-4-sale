@@ -57,11 +57,11 @@
 
                     <div class="grid grid-cols-2 gap-3 bg-gray-800 p-3 rounded border border-gray-700">
                         <div>
-                            <label class="block text-[#E74C3C] mb-1 text-xs uppercase font-bold">Venta ($)</label>
+                            <label class="block text-[#E74C3C] mb-1 text-xs uppercase font-bold">Venta (₡)</label>
                             <input type="number" step="0.01" id="p-price" class="w-full bg-black border border-gray-600 p-2 rounded text-white font-bold" required>
                         </div>
                         <div>
-                            <label class="block text-blue-400 mb-1 text-xs uppercase font-bold">Costo ($)</label>
+                            <label class="block text-blue-400 mb-1 text-xs uppercase font-bold">Costo (₡)</label>
                             <input type="number" step="0.01" id="p-cost" class="w-full bg-black border border-gray-600 p-2 rounded text-white" placeholder="0.00">
                             <p class="text-[10px] text-gray-500 mt-1">*Se guardará encriptado</p>
                         </div>
@@ -212,27 +212,27 @@
                     const row = `
                         <tr class="hover:bg-gray-800 transition">
                             <td class="px-4 py-3">
-                                <img src="${p.image}" class="w-10 h-10 object-cover rounded">
+                                <img src="₡{p.image}" class="w-10 h-10 object-cover rounded">
                             </td>
                             <td class="px-4 py-3">
-                                <div class="text-white font-bold">${p.name}</div>
-                                <div class="text-xs text-gray-500">${p.id}</div>
+                                <div class="text-white font-bold">₡{p.name}</div>
+                                <div class="text-xs text-gray-500">₡{p.id}</div>
                             </td>
                             <td class="px-4 py-3 text-right font-mono text-blue-400">
-                                $${cost.toFixed(2)}
+                                ₡₡{cost.toFixed(2)}
                             </td>
                             <td class="px-4 py-3 text-right font-mono text-[#E74C3C] font-bold">
-                                $${p.price.toFixed(2)}
+                                ₡₡{p.price.toFixed(2)}
                             </td>
-                            <td class="px-4 py-3 text-right font-mono font-bold ${profitClass}">
-                                +$${profit.toFixed(2)}
+                            <td class="px-4 py-3 text-right font-mono font-bold ₡{profitClass}">
+                                +₡₡{profit.toFixed(2)}
                             </td>
                         </tr>
                     `;
                     tbody.innerHTML += row;
                 });
 
-                document.getElementById('total-profit').innerText = `Ganancia Potencial: $${totalProfit.toFixed(2)}`;
+                document.getElementById('total-profit').innerText = `Ganancia Potencial: ₡₡{totalProfit.toFixed(2)}`;
 
             } catch (error) {
                 console.error(error);
@@ -262,8 +262,8 @@
             const is1of1 = document.getElementById('p-tag-1of1').checked;
 
             const randomId = Math.floor(Math.random() * 9000) + 1000;
-            const id = `sku-${randomId}`;
-            const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+            const id = `sku-₡{randomId}`;
+            const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-₡)+/g, '');
             const tags = is1of1 ? ["1/1", category.toLowerCase()] : [category.toLowerCase()];
 
             const newProduct = {
