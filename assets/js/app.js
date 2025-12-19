@@ -61,6 +61,16 @@ function renderShop(products) {
     });
 }
 
+function renderGrid(list, container) {
+    container.innerHTML = '';
+    if(list.length === 0) {
+        container.innerHTML = '<p class="text-xl col-span-full text-center">No hay nada en este drop por ahora.</p>';
+        return;
+    }
+    list.forEach(p => container.innerHTML += createProductCard(p));
+}
+
+// Renderizar Producto Individual (URL param logic)
 function renderSingleProduct(products) {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('slug');
@@ -78,53 +88,17 @@ function renderSingleProduct(products) {
     document.getElementById('prod-img').alt = product.name;
     document.getElementById('prod-title').innerText = product.name;
     
-    // CAMBIO: Formato Colones (sin decimales .00 visualmente si es entero)
+    // CAMBIO 1: Muestra el precio con el símbolo ₡ y formato de miles
     document.getElementById('prod-price').innerText = `₡${product.price.toLocaleString('es-CR')}`;
     
     document.getElementById('prod-desc').innerText = product.description;
     document.getElementById('prod-condition').innerText = product.condition;
     document.getElementById('prod-size').innerText = product.size;
-    // Medidas (si existen)
-    if(document.getElementById('prod-measurements')) {
-        document.getElementById('prod-measurements').innerText = product.measurements || "Consultar al DM";
-    }
-
-    if (typeof injectProductSchema === "function") injectProductSchema(product);
-
-    // Configurar Botón Snipcart
-    const btnCart = document.getElementById('btn-add-cart');
-    btnCart.dataset.itemId = product.id;
-    btnCart.dataset.itemPrice = product.price;
-    btnCart.dataset.itemUrl = BASE_URL; 
-    btnCart.dataset.itemDescription = product.description;
-    btnCart.dataset.itemImage = product.image;
-    btnCart.dataset.itemName = product.name;
-    
-    // IMPORTANTE: Definimos la moneda aquí
-    btnCart.dataset.itemCurrency = "CRC"; 
-
-    // WhatsApp
-    const btnWa = document.getElementById('btn-whatsapp');
-    const msg = `Hola Stuffy, me interesa el drop: ${product.name} (Ref: ${product.id}). ¿Sigue disponible?`;
-    btnWa.href = `https://wa.me/${WHATSAPP_PHONE}/?text=${encodeURIComponent(msg)}`;
-}
-
-    // Actualizar SEO y Título dinámicamente
-    document.title = `${product.name} | Random Stuff 4 Sale`;
-    
-    // Inyectar contenido
-    document.getElementById('prod-img').src = product.image;
-    document.getElementById('prod-img').alt = product.name;
-    document.getElementById('prod-title').innerText = product.name;
-    document.getElementById('prod-price').innerText = `$${product.price.toFixed(2)}`;
-    document.getElementById('prod-desc').innerText = product.description;
-    document.getElementById('prod-condition').innerText = product.condition;
-    document.getElementById('prod-size').innerText = product.size;
     document.getElementById('prod-measurements').innerText = product.measurements || "Consultar al DM";
 
-
-    // Generar JSON-LD para este producto
-    injectProductSchema(product);
+    if (typeof injectProductSchema === "function") {
+        injectProductSchema(product);
+    }
 
     // Configurar Botón Snipcart
     const btnCart = document.getElementById('btn-add-cart');
@@ -134,11 +108,14 @@ function renderSingleProduct(products) {
     btnCart.dataset.itemDescription = product.description;
     btnCart.dataset.itemImage = product.image;
     btnCart.dataset.itemName = product.name;
+    
+    // CAMBIO 2: Le dice a Snipcart que el precio está en Colones
+    btnCart.dataset.itemCurrency = "CRC"; 
 
-    // Configurar Botón WhatsApp
+    // Configurar Botón WhatsApp (usando la variable global)
     const btnWa = document.getElementById('btn-whatsapp');
     const msg = `Hola Stuffy, me interesa el drop: ${product.name} (Ref: ${product.id}). ¿Sigue disponible?`;
-    btnWa.href = `https://wa.me/${70962156}/?text=${encodeURIComponent(msg)}`;
+    btnWa.href = `https://wa.me/${WHATSAPP_PHONE}/?text=${encodeURIComponent(msg)}`;
 }
 
 // HTML Component: Card
@@ -182,7 +159,6 @@ function createProductCard(product) {
     </article>
     `;
 }
-
 // SEO Injection
 function injectProductSchema(product) {
     const schema = {
