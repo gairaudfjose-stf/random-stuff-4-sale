@@ -130,13 +130,13 @@ function createProductCard(product) {
     return `
     <article class="product-card border-2 border-black bg-white p-4 relative flex flex-col h-full">
         ${rareLabel}
-        <a href="producto.html?slug=${product.slug}" class="block overflow-hidden border border-black mb-4 aspect-square bg-gray-100">
+        <a href="products.html?slug=${product.slug}" class="block overflow-hidden border border-black mb-4 aspect-square bg-gray-100">
             <img src="${product.image}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
         </a>
         
         <div class="flex-grow">
             <h3 class="text-xl font-heading leading-tight mb-2 uppercase">
-                <a href="producto.html?slug=${product.slug}" class="hover:text-[#E74C3C]">${product.name}</a>
+                <a href="products.html?slug=${product.slug}" class="hover:text-[#E74C3C]">${product.name}</a>
             </h3>
         </div>
 
