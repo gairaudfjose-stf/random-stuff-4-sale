@@ -61,16 +61,6 @@ function renderShop(products) {
     });
 }
 
-function renderGrid(list, container) {
-    container.innerHTML = '';
-    if(list.length === 0) {
-        container.innerHTML = '<p class="text-xl col-span-full text-center">No hay nada en este drop por ahora.</p>';
-        return;
-    }
-    list.forEach(p => container.innerHTML += createProductCard(p));
-}
-
-// Renderizar Producto Individual (URL param logic)
 function renderSingleProduct(products) {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('slug');
@@ -80,6 +70,44 @@ function renderSingleProduct(products) {
         document.getElementById('product-detail').innerHTML = '<h2 class="text-3xl text-center mt-20">Este drop ya no existe (404).</h2>';
         return;
     }
+
+    document.title = `${product.name} | Random Stuff 4 Sale`;
+    
+    // Inyectar contenido
+    document.getElementById('prod-img').src = product.image;
+    document.getElementById('prod-img').alt = product.name;
+    document.getElementById('prod-title').innerText = product.name;
+    
+    // CAMBIO: Formato Colones (sin decimales .00 visualmente si es entero)
+    document.getElementById('prod-price').innerText = `₡${product.price.toLocaleString('es-CR')}`;
+    
+    document.getElementById('prod-desc').innerText = product.description;
+    document.getElementById('prod-condition').innerText = product.condition;
+    document.getElementById('prod-size').innerText = product.size;
+    // Medidas (si existen)
+    if(document.getElementById('prod-measurements')) {
+        document.getElementById('prod-measurements').innerText = product.measurements || "Consultar al DM";
+    }
+
+    if (typeof injectProductSchema === "function") injectProductSchema(product);
+
+    // Configurar Botón Snipcart
+    const btnCart = document.getElementById('btn-add-cart');
+    btnCart.dataset.itemId = product.id;
+    btnCart.dataset.itemPrice = product.price;
+    btnCart.dataset.itemUrl = BASE_URL; 
+    btnCart.dataset.itemDescription = product.description;
+    btnCart.dataset.itemImage = product.image;
+    btnCart.dataset.itemName = product.name;
+    
+    // IMPORTANTE: Definimos la moneda aquí
+    btnCart.dataset.itemCurrency = "CRC"; 
+
+    // WhatsApp
+    const btnWa = document.getElementById('btn-whatsapp');
+    const msg = `Hola Stuffy, me interesa el drop: ${product.name} (Ref: ${product.id}). ¿Sigue disponible?`;
+    btnWa.href = `https://wa.me/${WHATSAPP_PHONE}/?text=${encodeURIComponent(msg)}`;
+}
 
     // Actualizar SEO y Título dinámicamente
     document.title = `${product.name} | Random Stuff 4 Sale`;
@@ -115,19 +143,30 @@ function renderSingleProduct(products) {
 
 // HTML Component: Card
 function createProductCard(product) {
+    const rareLabel = product.tags.includes('1/1') 
+        ? `<span class="absolute top-2 right-2 bg-[#E74C3C] text-white text-xs font-heading px-2 py-1 uppercase border border-black transform rotate-2 z-10">1/1 Rare</span>` 
+        : '';
+        
+    // CAMBIO: Formato Colones visual
+    const precioFormateado = product.price.toLocaleString('es-CR');
+
     return `
-    <div class="border-2 border-black bg-white p-4 relative hover:shadow-lg transition-shadow">
-        ${product.tags.includes('1/1') ? '<span class="absolute top-2 right-2 bg-[#E74C3C] text-white text-xs font-heading px-2 py-1 uppercase border border-black transform rotate-2">1/1 Rare</span>' : ''}
-        <a href="products.html?slug=${product.slug}">
-            <div class="aspect-square bg-gray-200 mb-4 overflow-hidden border border-black">
-                <img src="${product.image}" alt="${product.name}" loading="lazy" class="object-cover w-full h-full hover:scale-105 transition-transform duration-500">
-            </div>
-            <h3 class="text-xl font-heading leading-tight mb-1">${product.name}</h3>
+    <article class="product-card border-2 border-black bg-white p-4 relative flex flex-col h-full">
+        ${rareLabel}
+        <a href="producto.html?slug=${product.slug}" class="block overflow-hidden border border-black mb-4 aspect-square bg-gray-100">
+            <img src="${product.image}" alt="${product.name}" loading="lazy" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
         </a>
-        <div class="flex justify-between items-end mt-2 border-t border-black pt-2">
+        
+        <div class="flex-grow">
+            <h3 class="text-xl font-heading leading-tight mb-2 uppercase">
+                <a href="producto.html?slug=${product.slug}" class="hover:text-[#E74C3C]">${product.name}</a>
+            </h3>
+        </div>
+
+        <div class="mt-4 border-t-2 border-black border-dashed pt-3 flex justify-between items-end">
             <div>
-                <p class="text-sm text-gray-600 font-body">Talla: <span class="font-bold">${product.size}</span></p>
-                <p class="text-lg font-bold font-heading">$${product.price.toFixed(2)}</p>
+                <span class="block text-xs font-body text-gray-500">Talla: ${product.size}</span>
+                <span class="block text-xl font-bold font-heading text-[#E74C3C]">₡${precioFormateado}</span>
             </div>
             <button class="snipcart-add-item btn-stuffy bg-black text-white px-3 py-1 text-sm font-heading uppercase"
                 data-item-id="${product.id}"
@@ -135,11 +174,12 @@ function createProductCard(product) {
                 data-item-url="${BASE_URL}" 
                 data-item-description="${product.description}"
                 data-item-image="${product.image}"
-                data-item-name="${product.name}">
-                Al Carrito
+                data-item-name="${product.name}"
+                data-item-currency="CRC"> <!-- AQUI AGREGAMOS LA MONEDA -->
+                + Cart
             </button>
         </div>
-    </div>
+    </article>
     `;
 }
 
